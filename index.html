@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expanding Cards</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./node_modules/normalize.css/normalize.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card is-expanded">
+        <img src="https://source.unsplash.com/HfGEtmnRwuE" alt="" />
+        <h3>Bridge</h3>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/sp-p7uuT0tw" alt="" />
+        <h3>Forest</h3>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/OD9EOzfSOh0" alt="" />
+        <h3>Beach</h3>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/8iZG31eXkks" alt="" />
+        <h3>Clouds</h3>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/dR_q93lfaTw" alt="" />
+        <h3>Mountain</h3>
+      </div>
+    </div>
+
+    <script>
+      const cards = document.querySelectorAll(".card");
+      let expandedCard = document.querySelector(".card.is-expanded");
+      cards.forEach((card) => {
+        card.addEventListener("click", (ev) => {
+          if (expandedCard !== card) {
+            expandedCard.classList.toggle("is-expanded");
+            card.classList.toggle("is-expanded");
+            expandedCard = card;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

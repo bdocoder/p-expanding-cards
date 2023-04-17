@@ -1,0 +1,82 @@
+:root {
+  --card-min-width: 6rem;
+}
+
+.container {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  padding: 0 2rem;
+}
+
+.card {
+  cursor: pointer;
+  width: var(--card-min-width);
+  height: 80vh;
+  position: relative;
+
+  transition: flex-grow ease 0.8s;
+}
+
+.card h3 {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+
+  color: white;
+  font-weight: bold;
+  line-height: 1;
+  overflow: hidden;
+  opacity: 0;
+  width: 100%;
+  font-size: 1.5rem;
+  font-family: sans-serif;
+}
+
+.card.is-expanded h3 {
+  opacity: 1;
+  transition: opacity ease-in 0.1s;
+  transition-delay: 0.8s;
+}
+
+.card.is-expanded {
+  flex-grow: 1;
+}
+
+.card img {
+  object-fit: cover;
+  object-position: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.card,
+.card img {
+  border-radius: calc(var(--card-min-width) / 2);
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --card-min-width: 5rem;
+  }
+
+  .card:nth-of-type(4),
+  .card:nth-of-type(5) {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --card-min-width: 4rem;
+  }
+
+  .card:nth-of-type(3) {
+    display: none;
+  }
+}
